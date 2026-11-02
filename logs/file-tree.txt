@@ -1452,5 +1452,4 @@ text2vec-portable/
 ├─ embed.py
 ├─ README.md
 ├─ THIRD-PARTY-NOTICES.txt
-├─ 向量.cmd
-└─ 安装.cmd
+└─ 向量.cmd
