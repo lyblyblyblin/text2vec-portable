@@ -1,13 +1,13 @@
 # 文本转向量（便携版）
 
 > 本页面内容由 AI 汇总生成，仅供参考。
-> 如内容涉及侵权，请在本仓库提交 Issue，核实后删除。
+> 如内容涉及侵权，请联系邮箱 **lin_yb@88.com**，核实后删除。
 
 一条文本进，一串 base64 出。内置 Python 3.12、numpy、tokenizers、onnxruntime 和 224MB 的
 ONNX 模型，**解压即可运行，不装 Python、不联外网、不需要 pip**。
 
 模型：`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`（384 维，CPU，量化版）
-输出是 384 个归一化 float32 + base64，与印象笔记台账、Teable 向量列**同一套格式**，可直接混用比对。
+输出是 384 个归一化 float32 + base64。
 
 ---
 
@@ -15,12 +15,12 @@ ONNX 模型，**解压即可运行，不装 Python、不联外网、不需要 pi
 
 | 文件 | 大小 | 说明 |
 |:--|--:|:--|
-| [text2vec-portable.zip](https://github.com/lyblyblyblin/text2vec-portable/releases/download/v1.0.0/text2vec-portable.zip) | 251 MB | 完整便携包（1319 个文件），解压即用 |
+| [text2vec-portable.zip](https://github.com/lyblyblyblin/text2vec-portable/releases/download/v1.0.0/text2vec-portable.zip) | 250 MB | 完整便携包（1318 个文件），解压即用 |
 
 SHA-256 校验值：
 
 ```
-8c57bf98d0ae85e3ea21d8db18ed3987261c2664290924cabfb58470a82bcc7b
+69802b21a0f2c9ced997fc3c9858be672ac2fe50594f9e9dddbd1bdac8b26163
 ```
 
 Windows 上校验：`certutil -hashfile text2vec-portable.zip SHA256`
@@ -57,20 +57,10 @@ $b64.Length      # 2048
 .\python\python.exe .\embed.py "你好世界"
 ```
 
-**一次只能传一条文本**（这是刻意的：批量化会引入 padding 和归一化差异，反而容易和台账对不上）。
+**一次只能传一条文本**（这是刻意的：批量化会引入 padding 和归一化差异，反而容易和已有结果对不上）。
 输出是 2048 个字符的 base64，**末尾不带换行**，赋值时不会混进空行。
 
-## 三、可选：接到默认路径
-
-`安装.cmd` 会做三件事，全部可选，不做也能用：
-
-| 步骤 | 作用 |
-|:--|:--|
-| 1 | 为 `C:\paraphrase-multilingual-MiniLM-L12-v2-onnx-Q` 建一个**目录联接**指向包内 `model\`（失败则复制），这样其它程序（如笔记向量脚本）按默认路径也能找到模型 |
-| 2 | 桌面生成「文本转向量」快捷方式 |
-| 3 | 跑一次自检 |
-
-## 四、输出怎么用
+## 三、输出怎么用
 
 base64 是 384 个 **float32 小端** 连续排列再 base64，共 1536 字节 / 2048 字符。
 解回数字：
@@ -89,7 +79,7 @@ b = struct.unpack("<384f", base64.b64decode(b64_2))
 print(sum(x * y for x, y in zip(a, b)))   # 1.0 表示完全相同
 ```
 
-## 五、自检与排错
+## 四、自检与排错
 
 ```bat
 python\python.exe embed.py --check
@@ -116,14 +106,13 @@ base64 长度 : 2048
 | `找不到可用的模型目录` | 只解压了部分文件 | 重新完整解压；或用 `--model-dir` 指定 |
 | 报 `msvcp140.dll` 缺失 | 系统缺 VC++ 运行库 | 包里已内置一份，若仍报错，装 [VC++ 2015-2022 x64](https://aka.ms/vs/17/release/vc_redist.x64.exe) |
 | 中文显示成方块 | 控制台代码页 | 先 `chcp 65001`，或直接用 PowerShell |
-| 结果比台账里的短 | 文本被截断 | 本模型上限 **128 token**（约 128 个汉字），超长部分不参与计算 |
+| 结果比已有的短 | 文本被截断 | 本模型上限 **128 token**（约 128 个汉字），超长部分不参与计算 |
 
-## 六、目录说明
+## 五、目录说明
 
 ```
 text2vec-portable\
 ├─ 向量.cmd          主入口（交互 / 带参数两种模式）
-├─ 安装.cmd          可选安装（默认路径联接 + 桌面快捷方式）
 ├─ embed.py          转向量脚本（纯 onnxruntime 实现）
 ├─ python\           嵌入式 Python 3.12.8 + 依赖 + VC 运行库
 │  ├─ python.exe
@@ -135,7 +124,7 @@ text2vec-portable\
 └─ model\            5 个模型文件，共 240MB
 ```
 
-## 七、版权与再分发
+## 六、版权与再分发
 
 包里所有组件都是宽松许可，可以自由复制、传播、商用：
 
@@ -155,7 +144,7 @@ text2vec-portable\
 两条红线：微软的运行库 DLL **不能单独拆出来给人下载**（必须作为本包的一部分）；
 模型若被你修改过（重新量化等），分发时要标注"已修改"。
 
-## 八、和 fastembed 版的关系
+## 七、和 fastembed 版的关系
 
 旧版 `embed.py` 依赖 fastembed，需要先装 Python 再联网装包，在 Python 3.15 上还装不上
 （onnxruntime 没有 3.15 的轮子）。这一版把推理逻辑直接写成 onnxruntime 调用：
@@ -170,7 +159,7 @@ text2vec-portable\
 内部实现对应 fastembed 的 `PooledEmbedding`：token 级输出 → 按 attention_mask 做
 **mean pooling**（float64 累加）→ 落回 float32 → L2 归一化 → base64。
 截断长度取 `tokenizer_config.json` 里 `model_max_length`(512) 与 `max_length`(128) 的**较小值 128**，
-这点和 fastembed 一致，请不要自行改大，否则结果会和台账对不上。
+这点和 fastembed 一致，请不要自行改大，否则结果会和已有输出对不上。
 
 ---
 
@@ -189,4 +178,4 @@ text2vec-portable\
 [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt)，分发时请务必保留该文件。
 
 > 本页面内容由 AI 汇总生成，仅供参考。
-> 如内容涉及侵权，请在本仓库提交 Issue，核实后删除。
+> 如内容涉及侵权，请联系邮箱 **lin_yb@88.com**，核实后删除。
