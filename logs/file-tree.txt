@@ -1,0 +1,1456 @@
+text2vec-portable/
+├─ __pycache__/
+│  └─ embed.cpython-311.pyc
+├─ model/
+│  ├─ config.json
+│  ├─ model_optimized.onnx
+│  ├─ special_tokens_map.json
+│  ├─ tokenizer.json
+│  └─ tokenizer_config.json
+├─ python/
+│  ├─ Lib/
+│  │  └─ site-packages/
+│  │     ├─ numpy-2.3.5.dist-info/
+│  │     │  ├─ DELVEWHEEL
+│  │     │  ├─ entry_points.txt
+│  │     │  ├─ LICENSE.txt
+│  │     │  ├─ METADATA
+│  │     │  ├─ RECORD
+│  │     │  └─ WHEEL
+│  │     ├─ numpy.libs/
+│  │     │  ├─ libscipy_openblas64_-9e3e5a4229c1ca39f10dc82bba9e2b2b.dll
+│  │     │  └─ msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll
+│  │     ├─ numpy/
+│  │     │  ├─ _core/
+│  │     │  │  ├─ include/
+│  │     │  │  │  └─ numpy/
+│  │     │  │  │     ├─ random/
+│  │     │  │  │     │  ├─ bitgen.h
+│  │     │  │  │     │  ├─ distributions.h
+│  │     │  │  │     │  ├─ libdivide.h
+│  │     │  │  │     │  └─ LICENSE.txt
+│  │     │  │  │     ├─ __multiarray_api.c
+│  │     │  │  │     ├─ __multiarray_api.h
+│  │     │  │  │     ├─ __ufunc_api.c
+│  │     │  │  │     ├─ __ufunc_api.h
+│  │     │  │  │     ├─ _neighborhood_iterator_imp.h
+│  │     │  │  │     ├─ _numpyconfig.h
+│  │     │  │  │     ├─ _public_dtype_api_table.h
+│  │     │  │  │     ├─ arrayobject.h
+│  │     │  │  │     ├─ arrayscalars.h
+│  │     │  │  │     ├─ dtype_api.h
+│  │     │  │  │     ├─ halffloat.h
+│  │     │  │  │     ├─ ndarrayobject.h
+│  │     │  │  │     ├─ ndarraytypes.h
+│  │     │  │  │     ├─ npy_2_compat.h
+│  │     │  │  │     ├─ npy_2_complexcompat.h
+│  │     │  │  │     ├─ npy_3kcompat.h
+│  │     │  │  │     ├─ npy_common.h
+│  │     │  │  │     ├─ npy_cpu.h
+│  │     │  │  │     ├─ npy_endian.h
+│  │     │  │  │     ├─ npy_math.h
+│  │     │  │  │     ├─ npy_no_deprecated_api.h
+│  │     │  │  │     ├─ npy_os.h
+│  │     │  │  │     ├─ numpyconfig.h
+│  │     │  │  │     ├─ ufuncobject.h
+│  │     │  │  │     └─ utils.h
+│  │     │  │  ├─ lib/
+│  │     │  │  │  ├─ npy-pkg-config/
+│  │     │  │  │  │  ├─ mlib.ini
+│  │     │  │  │  │  └─ npymath.ini
+│  │     │  │  │  ├─ pkgconfig/
+│  │     │  │  │  │  └─ numpy.pc
+│  │     │  │  │  └─ npymath.lib
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ data/
+│  │     │  │  │  │  ├─ astype_copy.pkl
+│  │     │  │  │  │  ├─ generate_umath_validation_data.cpp
+│  │     │  │  │  │  ├─ recarray_from_file.fits
+│  │     │  │  │  │  ├─ umath-validation-set-arccos.csv
+│  │     │  │  │  │  ├─ umath-validation-set-arccosh.csv
+│  │     │  │  │  │  ├─ umath-validation-set-arcsin.csv
+│  │     │  │  │  │  ├─ umath-validation-set-arcsinh.csv
+│  │     │  │  │  │  ├─ umath-validation-set-arctan.csv
+│  │     │  │  │  │  ├─ umath-validation-set-arctanh.csv
+│  │     │  │  │  │  ├─ umath-validation-set-cbrt.csv
+│  │     │  │  │  │  ├─ umath-validation-set-cos.csv
+│  │     │  │  │  │  ├─ umath-validation-set-cosh.csv
+│  │     │  │  │  │  ├─ umath-validation-set-exp.csv
+│  │     │  │  │  │  ├─ umath-validation-set-exp2.csv
+│  │     │  │  │  │  ├─ umath-validation-set-expm1.csv
+│  │     │  │  │  │  ├─ umath-validation-set-log.csv
+│  │     │  │  │  │  ├─ umath-validation-set-log10.csv
+│  │     │  │  │  │  ├─ umath-validation-set-log1p.csv
+│  │     │  │  │  │  ├─ umath-validation-set-log2.csv
+│  │     │  │  │  │  ├─ umath-validation-set-README.txt
+│  │     │  │  │  │  ├─ umath-validation-set-sin.csv
+│  │     │  │  │  │  ├─ umath-validation-set-sinh.csv
+│  │     │  │  │  │  ├─ umath-validation-set-tan.csv
+│  │     │  │  │  │  └─ umath-validation-set-tanh.csv
+│  │     │  │  │  ├─ examples/
+│  │     │  │  │  │  ├─ cython/
+│  │     │  │  │  │  │  ├─ checks.pyx
+│  │     │  │  │  │  │  ├─ meson.build
+│  │     │  │  │  │  │  └─ setup.py
+│  │     │  │  │  │  └─ limited_api/
+│  │     │  │  │  │     ├─ limited_api1.c
+│  │     │  │  │  │     ├─ limited_api2.pyx
+│  │     │  │  │  │     ├─ limited_api_latest.c
+│  │     │  │  │  │     ├─ meson.build
+│  │     │  │  │  │     └─ setup.py
+│  │     │  │  │  ├─ _locales.py
+│  │     │  │  │  ├─ _natype.py
+│  │     │  │  │  ├─ test__exceptions.py
+│  │     │  │  │  ├─ test_abc.py
+│  │     │  │  │  ├─ test_api.py
+│  │     │  │  │  ├─ test_argparse.py
+│  │     │  │  │  ├─ test_array_api_info.py
+│  │     │  │  │  ├─ test_array_coercion.py
+│  │     │  │  │  ├─ test_array_interface.py
+│  │     │  │  │  ├─ test_arraymethod.py
+│  │     │  │  │  ├─ test_arrayobject.py
+│  │     │  │  │  ├─ test_arrayprint.py
+│  │     │  │  │  ├─ test_casting_floatingpoint_errors.py
+│  │     │  │  │  ├─ test_casting_unittests.py
+│  │     │  │  │  ├─ test_conversion_utils.py
+│  │     │  │  │  ├─ test_cpu_dispatcher.py
+│  │     │  │  │  ├─ test_cpu_features.py
+│  │     │  │  │  ├─ test_custom_dtypes.py
+│  │     │  │  │  ├─ test_cython.py
+│  │     │  │  │  ├─ test_datetime.py
+│  │     │  │  │  ├─ test_defchararray.py
+│  │     │  │  │  ├─ test_deprecations.py
+│  │     │  │  │  ├─ test_dlpack.py
+│  │     │  │  │  ├─ test_dtype.py
+│  │     │  │  │  ├─ test_einsum.py
+│  │     │  │  │  ├─ test_errstate.py
+│  │     │  │  │  ├─ test_extint128.py
+│  │     │  │  │  ├─ test_function_base.py
+│  │     │  │  │  ├─ test_getlimits.py
+│  │     │  │  │  ├─ test_half.py
+│  │     │  │  │  ├─ test_hashtable.py
+│  │     │  │  │  ├─ test_indexerrors.py
+│  │     │  │  │  ├─ test_indexing.py
+│  │     │  │  │  ├─ test_item_selection.py
+│  │     │  │  │  ├─ test_limited_api.py
+│  │     │  │  │  ├─ test_longdouble.py
+│  │     │  │  │  ├─ test_machar.py
+│  │     │  │  │  ├─ test_mem_overlap.py
+│  │     │  │  │  ├─ test_mem_policy.py
+│  │     │  │  │  ├─ test_memmap.py
+│  │     │  │  │  ├─ test_multiarray.py
+│  │     │  │  │  ├─ test_multithreading.py
+│  │     │  │  │  ├─ test_nditer.py
+│  │     │  │  │  ├─ test_nep50_promotions.py
+│  │     │  │  │  ├─ test_numeric.py
+│  │     │  │  │  ├─ test_numerictypes.py
+│  │     │  │  │  ├─ test_overrides.py
+│  │     │  │  │  ├─ test_print.py
+│  │     │  │  │  ├─ test_protocols.py
+│  │     │  │  │  ├─ test_records.py
+│  │     │  │  │  ├─ test_regression.py
+│  │     │  │  │  ├─ test_scalar_ctors.py
+│  │     │  │  │  ├─ test_scalar_methods.py
+│  │     │  │  │  ├─ test_scalarbuffer.py
+│  │     │  │  │  ├─ test_scalarinherit.py
+│  │     │  │  │  ├─ test_scalarmath.py
+│  │     │  │  │  ├─ test_scalarprint.py
+│  │     │  │  │  ├─ test_shape_base.py
+│  │     │  │  │  ├─ test_simd.py
+│  │     │  │  │  ├─ test_simd_module.py
+│  │     │  │  │  ├─ test_stringdtype.py
+│  │     │  │  │  ├─ test_strings.py
+│  │     │  │  │  ├─ test_ufunc.py
+│  │     │  │  │  ├─ test_umath.py
+│  │     │  │  │  ├─ test_umath_accuracy.py
+│  │     │  │  │  ├─ test_umath_complex.py
+│  │     │  │  │  └─ test_unicode.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _add_newdocs.py
+│  │     │  │  ├─ _add_newdocs.pyi
+│  │     │  │  ├─ _add_newdocs_scalars.py
+│  │     │  │  ├─ _add_newdocs_scalars.pyi
+│  │     │  │  ├─ _asarray.py
+│  │     │  │  ├─ _asarray.pyi
+│  │     │  │  ├─ _dtype.py
+│  │     │  │  ├─ _dtype.pyi
+│  │     │  │  ├─ _dtype_ctypes.py
+│  │     │  │  ├─ _dtype_ctypes.pyi
+│  │     │  │  ├─ _exceptions.py
+│  │     │  │  ├─ _exceptions.pyi
+│  │     │  │  ├─ _internal.py
+│  │     │  │  ├─ _internal.pyi
+│  │     │  │  ├─ _machar.py
+│  │     │  │  ├─ _machar.pyi
+│  │     │  │  ├─ _methods.py
+│  │     │  │  ├─ _methods.pyi
+│  │     │  │  ├─ _multiarray_tests.cp312-win_amd64.lib
+│  │     │  │  ├─ _multiarray_tests.cp312-win_amd64.pyd
+│  │     │  │  ├─ _multiarray_umath.cp312-win_amd64.lib
+│  │     │  │  ├─ _multiarray_umath.cp312-win_amd64.pyd
+│  │     │  │  ├─ _operand_flag_tests.cp312-win_amd64.lib
+│  │     │  │  ├─ _operand_flag_tests.cp312-win_amd64.pyd
+│  │     │  │  ├─ _rational_tests.cp312-win_amd64.lib
+│  │     │  │  ├─ _rational_tests.cp312-win_amd64.pyd
+│  │     │  │  ├─ _simd.cp312-win_amd64.lib
+│  │     │  │  ├─ _simd.cp312-win_amd64.pyd
+│  │     │  │  ├─ _simd.pyi
+│  │     │  │  ├─ _string_helpers.py
+│  │     │  │  ├─ _string_helpers.pyi
+│  │     │  │  ├─ _struct_ufunc_tests.cp312-win_amd64.lib
+│  │     │  │  ├─ _struct_ufunc_tests.cp312-win_amd64.pyd
+│  │     │  │  ├─ _type_aliases.py
+│  │     │  │  ├─ _type_aliases.pyi
+│  │     │  │  ├─ _ufunc_config.py
+│  │     │  │  ├─ _ufunc_config.pyi
+│  │     │  │  ├─ _umath_tests.cp312-win_amd64.lib
+│  │     │  │  ├─ _umath_tests.cp312-win_amd64.pyd
+│  │     │  │  ├─ arrayprint.py
+│  │     │  │  ├─ arrayprint.pyi
+│  │     │  │  ├─ cversions.py
+│  │     │  │  ├─ defchararray.py
+│  │     │  │  ├─ defchararray.pyi
+│  │     │  │  ├─ einsumfunc.py
+│  │     │  │  ├─ einsumfunc.pyi
+│  │     │  │  ├─ fromnumeric.py
+│  │     │  │  ├─ fromnumeric.pyi
+│  │     │  │  ├─ function_base.py
+│  │     │  │  ├─ function_base.pyi
+│  │     │  │  ├─ getlimits.py
+│  │     │  │  ├─ getlimits.pyi
+│  │     │  │  ├─ memmap.py
+│  │     │  │  ├─ memmap.pyi
+│  │     │  │  ├─ multiarray.py
+│  │     │  │  ├─ multiarray.pyi
+│  │     │  │  ├─ numeric.py
+│  │     │  │  ├─ numeric.pyi
+│  │     │  │  ├─ numerictypes.py
+│  │     │  │  ├─ numerictypes.pyi
+│  │     │  │  ├─ overrides.py
+│  │     │  │  ├─ overrides.pyi
+│  │     │  │  ├─ printoptions.py
+│  │     │  │  ├─ printoptions.pyi
+│  │     │  │  ├─ records.py
+│  │     │  │  ├─ records.pyi
+│  │     │  │  ├─ shape_base.py
+│  │     │  │  ├─ shape_base.pyi
+│  │     │  │  ├─ strings.py
+│  │     │  │  ├─ strings.pyi
+│  │     │  │  ├─ umath.py
+│  │     │  │  └─ umath.pyi
+│  │     │  ├─ _pyinstaller/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ pyinstaller-smoke.py
+│  │     │  │  │  └─ test_pyinstaller.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ hook-numpy.py
+│  │     │  │  └─ hook-numpy.pyi
+│  │     │  ├─ _typing/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ _add_docstring.py
+│  │     │  │  ├─ _array_like.py
+│  │     │  │  ├─ _char_codes.py
+│  │     │  │  ├─ _dtype_like.py
+│  │     │  │  ├─ _extended_precision.py
+│  │     │  │  ├─ _nbit.py
+│  │     │  │  ├─ _nbit_base.py
+│  │     │  │  ├─ _nbit_base.pyi
+│  │     │  │  ├─ _nested_sequence.py
+│  │     │  │  ├─ _scalars.py
+│  │     │  │  ├─ _shape.py
+│  │     │  │  ├─ _ufunc.py
+│  │     │  │  └─ _ufunc.pyi
+│  │     │  ├─ _utils/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _convertions.py
+│  │     │  │  ├─ _convertions.pyi
+│  │     │  │  ├─ _inspect.py
+│  │     │  │  ├─ _inspect.pyi
+│  │     │  │  ├─ _pep440.py
+│  │     │  │  └─ _pep440.pyi
+│  │     │  ├─ char/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  └─ __init__.pyi
+│  │     │  ├─ core/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _dtype.py
+│  │     │  │  ├─ _dtype.pyi
+│  │     │  │  ├─ _dtype_ctypes.py
+│  │     │  │  ├─ _dtype_ctypes.pyi
+│  │     │  │  ├─ _internal.py
+│  │     │  │  ├─ _multiarray_umath.py
+│  │     │  │  ├─ _utils.py
+│  │     │  │  ├─ arrayprint.py
+│  │     │  │  ├─ defchararray.py
+│  │     │  │  ├─ einsumfunc.py
+│  │     │  │  ├─ fromnumeric.py
+│  │     │  │  ├─ function_base.py
+│  │     │  │  ├─ getlimits.py
+│  │     │  │  ├─ multiarray.py
+│  │     │  │  ├─ numeric.py
+│  │     │  │  ├─ numerictypes.py
+│  │     │  │  ├─ overrides.py
+│  │     │  │  ├─ overrides.pyi
+│  │     │  │  ├─ records.py
+│  │     │  │  ├─ shape_base.py
+│  │     │  │  └─ umath.py
+│  │     │  ├─ ctypeslib/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _ctypeslib.py
+│  │     │  │  └─ _ctypeslib.pyi
+│  │     │  ├─ doc/
+│  │     │  │  └─ ufuncs.py
+│  │     │  ├─ f2py/
+│  │     │  │  ├─ _backends/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ __init__.pyi
+│  │     │  │  │  ├─ _backend.py
+│  │     │  │  │  ├─ _backend.pyi
+│  │     │  │  │  ├─ _distutils.py
+│  │     │  │  │  ├─ _distutils.pyi
+│  │     │  │  │  ├─ _meson.py
+│  │     │  │  │  ├─ _meson.pyi
+│  │     │  │  │  └─ meson.build.template
+│  │     │  │  ├─ src/
+│  │     │  │  │  ├─ fortranobject.c
+│  │     │  │  │  └─ fortranobject.h
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ src/
+│  │     │  │  │  │  ├─ abstract_interface/
+│  │     │  │  │  │  │  ├─ foo.f90
+│  │     │  │  │  │  │  └─ gh18403_mod.f90
+│  │     │  │  │  │  ├─ array_from_pyobj/
+│  │     │  │  │  │  │  └─ wrapmodule.c
+│  │     │  │  │  │  ├─ assumed_shape/
+│  │     │  │  │  │  │  ├─ .f2py_f2cmap
+│  │     │  │  │  │  │  ├─ foo_free.f90
+│  │     │  │  │  │  │  ├─ foo_mod.f90
+│  │     │  │  │  │  │  ├─ foo_use.f90
+│  │     │  │  │  │  │  └─ precision.f90
+│  │     │  │  │  │  ├─ block_docstring/
+│  │     │  │  │  │  │  └─ foo.f
+│  │     │  │  │  │  ├─ callback/
+│  │     │  │  │  │  │  ├─ foo.f
+│  │     │  │  │  │  │  ├─ gh17797.f90
+│  │     │  │  │  │  │  ├─ gh18335.f90
+│  │     │  │  │  │  │  ├─ gh25211.f
+│  │     │  │  │  │  │  ├─ gh25211.pyf
+│  │     │  │  │  │  │  └─ gh26681.f90
+│  │     │  │  │  │  ├─ cli/
+│  │     │  │  │  │  │  ├─ gh_22819.pyf
+│  │     │  │  │  │  │  ├─ hi77.f
+│  │     │  │  │  │  │  └─ hiworld.f90
+│  │     │  │  │  │  ├─ common/
+│  │     │  │  │  │  │  ├─ block.f
+│  │     │  │  │  │  │  └─ gh19161.f90
+│  │     │  │  │  │  ├─ crackfortran/
+│  │     │  │  │  │  │  ├─ accesstype.f90
+│  │     │  │  │  │  │  ├─ common_with_division.f
+│  │     │  │  │  │  │  ├─ data_common.f
+│  │     │  │  │  │  │  ├─ data_multiplier.f
+│  │     │  │  │  │  │  ├─ data_stmts.f90
+│  │     │  │  │  │  │  ├─ data_with_comments.f
+│  │     │  │  │  │  │  ├─ foo_deps.f90
+│  │     │  │  │  │  │  ├─ gh15035.f
+│  │     │  │  │  │  │  ├─ gh17859.f
+│  │     │  │  │  │  │  ├─ gh22648.pyf
+│  │     │  │  │  │  │  ├─ gh23533.f
+│  │     │  │  │  │  │  ├─ gh23598.f90
+│  │     │  │  │  │  │  ├─ gh23598Warn.f90
+│  │     │  │  │  │  │  ├─ gh23879.f90
+│  │     │  │  │  │  │  ├─ gh27697.f90
+│  │     │  │  │  │  │  ├─ gh2848.f90
+│  │     │  │  │  │  │  ├─ operators.f90
+│  │     │  │  │  │  │  ├─ privatemod.f90
+│  │     │  │  │  │  │  ├─ publicmod.f90
+│  │     │  │  │  │  │  ├─ pubprivmod.f90
+│  │     │  │  │  │  │  └─ unicode_comment.f90
+│  │     │  │  │  │  ├─ f2cmap/
+│  │     │  │  │  │  │  ├─ .f2py_f2cmap
+│  │     │  │  │  │  │  └─ isoFortranEnvMap.f90
+│  │     │  │  │  │  ├─ isocintrin/
+│  │     │  │  │  │  │  └─ isoCtests.f90
+│  │     │  │  │  │  ├─ kind/
+│  │     │  │  │  │  │  └─ foo.f90
+│  │     │  │  │  │  ├─ mixed/
+│  │     │  │  │  │  │  ├─ foo.f
+│  │     │  │  │  │  │  ├─ foo_fixed.f90
+│  │     │  │  │  │  │  └─ foo_free.f90
+│  │     │  │  │  │  ├─ modules/
+│  │     │  │  │  │  │  ├─ gh25337/
+│  │     │  │  │  │  │  │  ├─ data.f90
+│  │     │  │  │  │  │  │  └─ use_data.f90
+│  │     │  │  │  │  │  ├─ gh26920/
+│  │     │  │  │  │  │  │  ├─ two_mods_with_no_public_entities.f90
+│  │     │  │  │  │  │  │  └─ two_mods_with_one_public_routine.f90
+│  │     │  │  │  │  │  ├─ module_data_docstring.f90
+│  │     │  │  │  │  │  └─ use_modules.f90
+│  │     │  │  │  │  ├─ negative_bounds/
+│  │     │  │  │  │  │  └─ issue_20853.f90
+│  │     │  │  │  │  ├─ parameter/
+│  │     │  │  │  │  │  ├─ constant_array.f90
+│  │     │  │  │  │  │  ├─ constant_both.f90
+│  │     │  │  │  │  │  ├─ constant_compound.f90
+│  │     │  │  │  │  │  ├─ constant_integer.f90
+│  │     │  │  │  │  │  ├─ constant_non_compound.f90
+│  │     │  │  │  │  │  └─ constant_real.f90
+│  │     │  │  │  │  ├─ quoted_character/
+│  │     │  │  │  │  │  └─ foo.f
+│  │     │  │  │  │  ├─ regression/
+│  │     │  │  │  │  │  ├─ AB.inc
+│  │     │  │  │  │  │  ├─ assignOnlyModule.f90
+│  │     │  │  │  │  │  ├─ datonly.f90
+│  │     │  │  │  │  │  ├─ f77comments.f
+│  │     │  │  │  │  │  ├─ f77fixedform.f95
+│  │     │  │  │  │  │  ├─ f90continuation.f90
+│  │     │  │  │  │  │  ├─ incfile.f90
+│  │     │  │  │  │  │  ├─ inout.f90
+│  │     │  │  │  │  │  ├─ lower_f2py_fortran.f90
+│  │     │  │  │  │  │  └─ mod_derived_types.f90
+│  │     │  │  │  │  ├─ return_character/
+│  │     │  │  │  │  │  ├─ foo77.f
+│  │     │  │  │  │  │  └─ foo90.f90
+│  │     │  │  │  │  ├─ return_complex/
+│  │     │  │  │  │  │  ├─ foo77.f
+│  │     │  │  │  │  │  └─ foo90.f90
+│  │     │  │  │  │  ├─ return_integer/
+│  │     │  │  │  │  │  ├─ foo77.f
+│  │     │  │  │  │  │  └─ foo90.f90
+│  │     │  │  │  │  ├─ return_logical/
+│  │     │  │  │  │  │  ├─ foo77.f
+│  │     │  │  │  │  │  └─ foo90.f90
+│  │     │  │  │  │  ├─ return_real/
+│  │     │  │  │  │  │  ├─ foo77.f
+│  │     │  │  │  │  │  └─ foo90.f90
+│  │     │  │  │  │  ├─ routines/
+│  │     │  │  │  │  │  ├─ funcfortranname.f
+│  │     │  │  │  │  │  ├─ funcfortranname.pyf
+│  │     │  │  │  │  │  ├─ subrout.f
+│  │     │  │  │  │  │  └─ subrout.pyf
+│  │     │  │  │  │  ├─ size/
+│  │     │  │  │  │  │  └─ foo.f90
+│  │     │  │  │  │  ├─ string/
+│  │     │  │  │  │  │  ├─ char.f90
+│  │     │  │  │  │  │  ├─ fixed_string.f90
+│  │     │  │  │  │  │  ├─ gh24008.f
+│  │     │  │  │  │  │  ├─ gh24662.f90
+│  │     │  │  │  │  │  ├─ gh25286.f90
+│  │     │  │  │  │  │  ├─ gh25286.pyf
+│  │     │  │  │  │  │  ├─ gh25286_bc.pyf
+│  │     │  │  │  │  │  ├─ scalar_string.f90
+│  │     │  │  │  │  │  └─ string.f
+│  │     │  │  │  │  └─ value_attrspec/
+│  │     │  │  │  │     └─ gh21665.f90
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_abstract_interface.py
+│  │     │  │  │  ├─ test_array_from_pyobj.py
+│  │     │  │  │  ├─ test_assumed_shape.py
+│  │     │  │  │  ├─ test_block_docstring.py
+│  │     │  │  │  ├─ test_callback.py
+│  │     │  │  │  ├─ test_character.py
+│  │     │  │  │  ├─ test_common.py
+│  │     │  │  │  ├─ test_crackfortran.py
+│  │     │  │  │  ├─ test_data.py
+│  │     │  │  │  ├─ test_docs.py
+│  │     │  │  │  ├─ test_f2cmap.py
+│  │     │  │  │  ├─ test_f2py2e.py
+│  │     │  │  │  ├─ test_isoc.py
+│  │     │  │  │  ├─ test_kind.py
+│  │     │  │  │  ├─ test_mixed.py
+│  │     │  │  │  ├─ test_modules.py
+│  │     │  │  │  ├─ test_parameter.py
+│  │     │  │  │  ├─ test_pyf_src.py
+│  │     │  │  │  ├─ test_quoted_character.py
+│  │     │  │  │  ├─ test_regression.py
+│  │     │  │  │  ├─ test_return_character.py
+│  │     │  │  │  ├─ test_return_complex.py
+│  │     │  │  │  ├─ test_return_integer.py
+│  │     │  │  │  ├─ test_return_logical.py
+│  │     │  │  │  ├─ test_return_real.py
+│  │     │  │  │  ├─ test_routines.py
+│  │     │  │  │  ├─ test_semicolon_split.py
+│  │     │  │  │  ├─ test_size.py
+│  │     │  │  │  ├─ test_string.py
+│  │     │  │  │  ├─ test_symbolic.py
+│  │     │  │  │  ├─ test_value_attrspec.py
+│  │     │  │  │  └─ util.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ __main__.py
+│  │     │  │  ├─ __version__.py
+│  │     │  │  ├─ __version__.pyi
+│  │     │  │  ├─ _isocbind.py
+│  │     │  │  ├─ _isocbind.pyi
+│  │     │  │  ├─ _src_pyf.py
+│  │     │  │  ├─ _src_pyf.pyi
+│  │     │  │  ├─ auxfuncs.py
+│  │     │  │  ├─ auxfuncs.pyi
+│  │     │  │  ├─ capi_maps.py
+│  │     │  │  ├─ capi_maps.pyi
+│  │     │  │  ├─ cb_rules.py
+│  │     │  │  ├─ cb_rules.pyi
+│  │     │  │  ├─ cfuncs.py
+│  │     │  │  ├─ cfuncs.pyi
+│  │     │  │  ├─ common_rules.py
+│  │     │  │  ├─ common_rules.pyi
+│  │     │  │  ├─ crackfortran.py
+│  │     │  │  ├─ crackfortran.pyi
+│  │     │  │  ├─ diagnose.py
+│  │     │  │  ├─ diagnose.pyi
+│  │     │  │  ├─ f2py2e.py
+│  │     │  │  ├─ f2py2e.pyi
+│  │     │  │  ├─ f90mod_rules.py
+│  │     │  │  ├─ f90mod_rules.pyi
+│  │     │  │  ├─ func2subr.py
+│  │     │  │  ├─ func2subr.pyi
+│  │     │  │  ├─ rules.py
+│  │     │  │  ├─ rules.pyi
+│  │     │  │  ├─ setup.cfg
+│  │     │  │  ├─ symbolic.py
+│  │     │  │  ├─ symbolic.pyi
+│  │     │  │  ├─ use_rules.py
+│  │     │  │  └─ use_rules.pyi
+│  │     │  ├─ fft/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_helper.py
+│  │     │  │  │  └─ test_pocketfft.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _helper.py
+│  │     │  │  ├─ _helper.pyi
+│  │     │  │  ├─ _pocketfft.py
+│  │     │  │  ├─ _pocketfft.pyi
+│  │     │  │  ├─ _pocketfft_umath.cp312-win_amd64.lib
+│  │     │  │  ├─ _pocketfft_umath.cp312-win_amd64.pyd
+│  │     │  │  ├─ helper.py
+│  │     │  │  └─ helper.pyi
+│  │     │  ├─ lib/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ data/
+│  │     │  │  │  │  ├─ py2-np0-objarr.npy
+│  │     │  │  │  │  ├─ py2-objarr.npy
+│  │     │  │  │  │  ├─ py2-objarr.npz
+│  │     │  │  │  │  ├─ py3-objarr.npy
+│  │     │  │  │  │  ├─ py3-objarr.npz
+│  │     │  │  │  │  ├─ python3.npy
+│  │     │  │  │  │  └─ win64python2.npy
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test__datasource.py
+│  │     │  │  │  ├─ test__iotools.py
+│  │     │  │  │  ├─ test__version.py
+│  │     │  │  │  ├─ test_array_utils.py
+│  │     │  │  │  ├─ test_arraypad.py
+│  │     │  │  │  ├─ test_arraysetops.py
+│  │     │  │  │  ├─ test_arrayterator.py
+│  │     │  │  │  ├─ test_format.py
+│  │     │  │  │  ├─ test_function_base.py
+│  │     │  │  │  ├─ test_histograms.py
+│  │     │  │  │  ├─ test_index_tricks.py
+│  │     │  │  │  ├─ test_io.py
+│  │     │  │  │  ├─ test_loadtxt.py
+│  │     │  │  │  ├─ test_mixins.py
+│  │     │  │  │  ├─ test_nanfunctions.py
+│  │     │  │  │  ├─ test_packbits.py
+│  │     │  │  │  ├─ test_polynomial.py
+│  │     │  │  │  ├─ test_recfunctions.py
+│  │     │  │  │  ├─ test_regression.py
+│  │     │  │  │  ├─ test_shape_base.py
+│  │     │  │  │  ├─ test_stride_tricks.py
+│  │     │  │  │  ├─ test_twodim_base.py
+│  │     │  │  │  ├─ test_type_check.py
+│  │     │  │  │  ├─ test_ufunclike.py
+│  │     │  │  │  └─ test_utils.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _array_utils_impl.py
+│  │     │  │  ├─ _array_utils_impl.pyi
+│  │     │  │  ├─ _arraypad_impl.py
+│  │     │  │  ├─ _arraypad_impl.pyi
+│  │     │  │  ├─ _arraysetops_impl.py
+│  │     │  │  ├─ _arraysetops_impl.pyi
+│  │     │  │  ├─ _arrayterator_impl.py
+│  │     │  │  ├─ _arrayterator_impl.pyi
+│  │     │  │  ├─ _datasource.py
+│  │     │  │  ├─ _datasource.pyi
+│  │     │  │  ├─ _format_impl.py
+│  │     │  │  ├─ _format_impl.pyi
+│  │     │  │  ├─ _function_base_impl.py
+│  │     │  │  ├─ _function_base_impl.pyi
+│  │     │  │  ├─ _histograms_impl.py
+│  │     │  │  ├─ _histograms_impl.pyi
+│  │     │  │  ├─ _index_tricks_impl.py
+│  │     │  │  ├─ _index_tricks_impl.pyi
+│  │     │  │  ├─ _iotools.py
+│  │     │  │  ├─ _iotools.pyi
+│  │     │  │  ├─ _nanfunctions_impl.py
+│  │     │  │  ├─ _nanfunctions_impl.pyi
+│  │     │  │  ├─ _npyio_impl.py
+│  │     │  │  ├─ _npyio_impl.pyi
+│  │     │  │  ├─ _polynomial_impl.py
+│  │     │  │  ├─ _polynomial_impl.pyi
+│  │     │  │  ├─ _scimath_impl.py
+│  │     │  │  ├─ _scimath_impl.pyi
+│  │     │  │  ├─ _shape_base_impl.py
+│  │     │  │  ├─ _shape_base_impl.pyi
+│  │     │  │  ├─ _stride_tricks_impl.py
+│  │     │  │  ├─ _stride_tricks_impl.pyi
+│  │     │  │  ├─ _twodim_base_impl.py
+│  │     │  │  ├─ _twodim_base_impl.pyi
+│  │     │  │  ├─ _type_check_impl.py
+│  │     │  │  ├─ _type_check_impl.pyi
+│  │     │  │  ├─ _ufunclike_impl.py
+│  │     │  │  ├─ _ufunclike_impl.pyi
+│  │     │  │  ├─ _user_array_impl.py
+│  │     │  │  ├─ _user_array_impl.pyi
+│  │     │  │  ├─ _utils_impl.py
+│  │     │  │  ├─ _utils_impl.pyi
+│  │     │  │  ├─ _version.py
+│  │     │  │  ├─ _version.pyi
+│  │     │  │  ├─ array_utils.py
+│  │     │  │  ├─ array_utils.pyi
+│  │     │  │  ├─ format.py
+│  │     │  │  ├─ format.pyi
+│  │     │  │  ├─ introspect.py
+│  │     │  │  ├─ introspect.pyi
+│  │     │  │  ├─ mixins.py
+│  │     │  │  ├─ mixins.pyi
+│  │     │  │  ├─ npyio.py
+│  │     │  │  ├─ npyio.pyi
+│  │     │  │  ├─ recfunctions.py
+│  │     │  │  ├─ recfunctions.pyi
+│  │     │  │  ├─ scimath.py
+│  │     │  │  ├─ scimath.pyi
+│  │     │  │  ├─ stride_tricks.py
+│  │     │  │  ├─ stride_tricks.pyi
+│  │     │  │  ├─ user_array.py
+│  │     │  │  └─ user_array.pyi
+│  │     │  ├─ linalg/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_deprecations.py
+│  │     │  │  │  ├─ test_linalg.py
+│  │     │  │  │  └─ test_regression.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _linalg.py
+│  │     │  │  ├─ _linalg.pyi
+│  │     │  │  ├─ _umath_linalg.cp312-win_amd64.lib
+│  │     │  │  ├─ _umath_linalg.cp312-win_amd64.pyd
+│  │     │  │  ├─ _umath_linalg.pyi
+│  │     │  │  ├─ lapack_lite.cp312-win_amd64.lib
+│  │     │  │  ├─ lapack_lite.cp312-win_amd64.pyd
+│  │     │  │  ├─ lapack_lite.pyi
+│  │     │  │  ├─ linalg.py
+│  │     │  │  └─ linalg.pyi
+│  │     │  ├─ ma/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_arrayobject.py
+│  │     │  │  │  ├─ test_core.py
+│  │     │  │  │  ├─ test_deprecations.py
+│  │     │  │  │  ├─ test_extras.py
+│  │     │  │  │  ├─ test_mrecords.py
+│  │     │  │  │  ├─ test_old_ma.py
+│  │     │  │  │  ├─ test_regression.py
+│  │     │  │  │  └─ test_subclassing.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ API_CHANGES.txt
+│  │     │  │  ├─ core.py
+│  │     │  │  ├─ core.pyi
+│  │     │  │  ├─ extras.py
+│  │     │  │  ├─ extras.pyi
+│  │     │  │  ├─ LICENSE
+│  │     │  │  ├─ mrecords.py
+│  │     │  │  ├─ mrecords.pyi
+│  │     │  │  ├─ README.rst
+│  │     │  │  └─ testutils.py
+│  │     │  ├─ matrixlib/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_defmatrix.py
+│  │     │  │  │  ├─ test_interaction.py
+│  │     │  │  │  ├─ test_masked_matrix.py
+│  │     │  │  │  ├─ test_matrix_linalg.py
+│  │     │  │  │  ├─ test_multiarray.py
+│  │     │  │  │  ├─ test_numeric.py
+│  │     │  │  │  └─ test_regression.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ defmatrix.py
+│  │     │  │  └─ defmatrix.pyi
+│  │     │  ├─ polynomial/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_chebyshev.py
+│  │     │  │  │  ├─ test_classes.py
+│  │     │  │  │  ├─ test_hermite.py
+│  │     │  │  │  ├─ test_hermite_e.py
+│  │     │  │  │  ├─ test_laguerre.py
+│  │     │  │  │  ├─ test_legendre.py
+│  │     │  │  │  ├─ test_polynomial.py
+│  │     │  │  │  ├─ test_polyutils.py
+│  │     │  │  │  ├─ test_printing.py
+│  │     │  │  │  └─ test_symbol.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _polybase.py
+│  │     │  │  ├─ _polybase.pyi
+│  │     │  │  ├─ _polytypes.pyi
+│  │     │  │  ├─ chebyshev.py
+│  │     │  │  ├─ chebyshev.pyi
+│  │     │  │  ├─ hermite.py
+│  │     │  │  ├─ hermite.pyi
+│  │     │  │  ├─ hermite_e.py
+│  │     │  │  ├─ hermite_e.pyi
+│  │     │  │  ├─ laguerre.py
+│  │     │  │  ├─ laguerre.pyi
+│  │     │  │  ├─ legendre.py
+│  │     │  │  ├─ legendre.pyi
+│  │     │  │  ├─ polynomial.py
+│  │     │  │  ├─ polynomial.pyi
+│  │     │  │  ├─ polyutils.py
+│  │     │  │  └─ polyutils.pyi
+│  │     │  ├─ random/
+│  │     │  │  ├─ _examples/
+│  │     │  │  │  ├─ cffi/
+│  │     │  │  │  │  ├─ extending.py
+│  │     │  │  │  │  └─ parse.py
+│  │     │  │  │  ├─ cython/
+│  │     │  │  │  │  ├─ extending.pyx
+│  │     │  │  │  │  ├─ extending_distributions.pyx
+│  │     │  │  │  │  └─ meson.build
+│  │     │  │  │  └─ numba/
+│  │     │  │  │     ├─ extending.py
+│  │     │  │  │     └─ extending_distributions.py
+│  │     │  │  ├─ lib/
+│  │     │  │  │  └─ npyrandom.lib
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ data/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ generator_pcg64_np121.pkl.gz
+│  │     │  │  │  │  ├─ generator_pcg64_np126.pkl.gz
+│  │     │  │  │  │  ├─ mt19937-testset-1.csv
+│  │     │  │  │  │  ├─ mt19937-testset-2.csv
+│  │     │  │  │  │  ├─ pcg64-testset-1.csv
+│  │     │  │  │  │  ├─ pcg64-testset-2.csv
+│  │     │  │  │  │  ├─ pcg64dxsm-testset-1.csv
+│  │     │  │  │  │  ├─ pcg64dxsm-testset-2.csv
+│  │     │  │  │  │  ├─ philox-testset-1.csv
+│  │     │  │  │  │  ├─ philox-testset-2.csv
+│  │     │  │  │  │  ├─ sfc64-testset-1.csv
+│  │     │  │  │  │  ├─ sfc64-testset-2.csv
+│  │     │  │  │  │  └─ sfc64_np126.pkl.gz
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_direct.py
+│  │     │  │  │  ├─ test_extending.py
+│  │     │  │  │  ├─ test_generator_mt19937.py
+│  │     │  │  │  ├─ test_generator_mt19937_regressions.py
+│  │     │  │  │  ├─ test_random.py
+│  │     │  │  │  ├─ test_randomstate.py
+│  │     │  │  │  ├─ test_randomstate_regression.py
+│  │     │  │  │  ├─ test_regression.py
+│  │     │  │  │  ├─ test_seed_sequence.py
+│  │     │  │  │  └─ test_smoke.py
+│  │     │  │  ├─ __init__.pxd
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ _bounded_integers.cp312-win_amd64.lib
+│  │     │  │  ├─ _bounded_integers.cp312-win_amd64.pyd
+│  │     │  │  ├─ _bounded_integers.pxd
+│  │     │  │  ├─ _bounded_integers.pyi
+│  │     │  │  ├─ _common.cp312-win_amd64.lib
+│  │     │  │  ├─ _common.cp312-win_amd64.pyd
+│  │     │  │  ├─ _common.pxd
+│  │     │  │  ├─ _common.pyi
+│  │     │  │  ├─ _generator.cp312-win_amd64.lib
+│  │     │  │  ├─ _generator.cp312-win_amd64.pyd
+│  │     │  │  ├─ _generator.pyi
+│  │     │  │  ├─ _mt19937.cp312-win_amd64.lib
+│  │     │  │  ├─ _mt19937.cp312-win_amd64.pyd
+│  │     │  │  ├─ _mt19937.pyi
+│  │     │  │  ├─ _pcg64.cp312-win_amd64.lib
+│  │     │  │  ├─ _pcg64.cp312-win_amd64.pyd
+│  │     │  │  ├─ _pcg64.pyi
+│  │     │  │  ├─ _philox.cp312-win_amd64.lib
+│  │     │  │  ├─ _philox.cp312-win_amd64.pyd
+│  │     │  │  ├─ _philox.pyi
+│  │     │  │  ├─ _pickle.py
+│  │     │  │  ├─ _pickle.pyi
+│  │     │  │  ├─ _sfc64.cp312-win_amd64.lib
+│  │     │  │  ├─ _sfc64.cp312-win_amd64.pyd
+│  │     │  │  ├─ _sfc64.pyi
+│  │     │  │  ├─ bit_generator.cp312-win_amd64.lib
+│  │     │  │  ├─ bit_generator.cp312-win_amd64.pyd
+│  │     │  │  ├─ bit_generator.pxd
+│  │     │  │  ├─ bit_generator.pyi
+│  │     │  │  ├─ c_distributions.pxd
+│  │     │  │  ├─ LICENSE.md
+│  │     │  │  ├─ mtrand.cp312-win_amd64.lib
+│  │     │  │  ├─ mtrand.cp312-win_amd64.pyd
+│  │     │  │  └─ mtrand.pyi
+│  │     │  ├─ rec/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  └─ __init__.pyi
+│  │     │  ├─ strings/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  └─ __init__.pyi
+│  │     │  ├─ testing/
+│  │     │  │  ├─ _private/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ __init__.pyi
+│  │     │  │  │  ├─ extbuild.py
+│  │     │  │  │  ├─ extbuild.pyi
+│  │     │  │  │  ├─ utils.py
+│  │     │  │  │  └─ utils.pyi
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  └─ test_utils.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ __init__.pyi
+│  │     │  │  ├─ overrides.py
+│  │     │  │  ├─ overrides.pyi
+│  │     │  │  ├─ print_coercion_tables.py
+│  │     │  │  └─ print_coercion_tables.pyi
+│  │     │  ├─ tests/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ test__all__.py
+│  │     │  │  ├─ test_configtool.py
+│  │     │  │  ├─ test_ctypeslib.py
+│  │     │  │  ├─ test_lazyloading.py
+│  │     │  │  ├─ test_matlib.py
+│  │     │  │  ├─ test_numpy_config.py
+│  │     │  │  ├─ test_numpy_version.py
+│  │     │  │  ├─ test_public_api.py
+│  │     │  │  ├─ test_reloading.py
+│  │     │  │  ├─ test_scripts.py
+│  │     │  │  └─ test_warnings.py
+│  │     │  ├─ typing/
+│  │     │  │  ├─ tests/
+│  │     │  │  │  ├─ data/
+│  │     │  │  │  │  ├─ fail/
+│  │     │  │  │  │  │  ├─ arithmetic.pyi
+│  │     │  │  │  │  │  ├─ array_constructors.pyi
+│  │     │  │  │  │  │  ├─ array_like.pyi
+│  │     │  │  │  │  │  ├─ array_pad.pyi
+│  │     │  │  │  │  │  ├─ arrayprint.pyi
+│  │     │  │  │  │  │  ├─ arrayterator.pyi
+│  │     │  │  │  │  │  ├─ bitwise_ops.pyi
+│  │     │  │  │  │  │  ├─ char.pyi
+│  │     │  │  │  │  │  ├─ chararray.pyi
+│  │     │  │  │  │  │  ├─ comparisons.pyi
+│  │     │  │  │  │  │  ├─ constants.pyi
+│  │     │  │  │  │  │  ├─ datasource.pyi
+│  │     │  │  │  │  │  ├─ dtype.pyi
+│  │     │  │  │  │  │  ├─ einsumfunc.pyi
+│  │     │  │  │  │  │  ├─ flatiter.pyi
+│  │     │  │  │  │  │  ├─ fromnumeric.pyi
+│  │     │  │  │  │  │  ├─ histograms.pyi
+│  │     │  │  │  │  │  ├─ index_tricks.pyi
+│  │     │  │  │  │  │  ├─ lib_function_base.pyi
+│  │     │  │  │  │  │  ├─ lib_polynomial.pyi
+│  │     │  │  │  │  │  ├─ lib_utils.pyi
+│  │     │  │  │  │  │  ├─ lib_version.pyi
+│  │     │  │  │  │  │  ├─ linalg.pyi
+│  │     │  │  │  │  │  ├─ ma.pyi
+│  │     │  │  │  │  │  ├─ memmap.pyi
+│  │     │  │  │  │  │  ├─ modules.pyi
+│  │     │  │  │  │  │  ├─ multiarray.pyi
+│  │     │  │  │  │  │  ├─ ndarray.pyi
+│  │     │  │  │  │  │  ├─ ndarray_misc.pyi
+│  │     │  │  │  │  │  ├─ nditer.pyi
+│  │     │  │  │  │  │  ├─ nested_sequence.pyi
+│  │     │  │  │  │  │  ├─ npyio.pyi
+│  │     │  │  │  │  │  ├─ numerictypes.pyi
+│  │     │  │  │  │  │  ├─ random.pyi
+│  │     │  │  │  │  │  ├─ rec.pyi
+│  │     │  │  │  │  │  ├─ scalars.pyi
+│  │     │  │  │  │  │  ├─ shape.pyi
+│  │     │  │  │  │  │  ├─ shape_base.pyi
+│  │     │  │  │  │  │  ├─ stride_tricks.pyi
+│  │     │  │  │  │  │  ├─ strings.pyi
+│  │     │  │  │  │  │  ├─ testing.pyi
+│  │     │  │  │  │  │  ├─ twodim_base.pyi
+│  │     │  │  │  │  │  ├─ type_check.pyi
+│  │     │  │  │  │  │  ├─ ufunc_config.pyi
+│  │     │  │  │  │  │  ├─ ufunclike.pyi
+│  │     │  │  │  │  │  ├─ ufuncs.pyi
+│  │     │  │  │  │  │  └─ warnings_and_errors.pyi
+│  │     │  │  │  │  ├─ misc/
+│  │     │  │  │  │  │  └─ extended_precision.pyi
+│  │     │  │  │  │  ├─ pass/
+│  │     │  │  │  │  │  ├─ arithmetic.py
+│  │     │  │  │  │  │  ├─ array_constructors.py
+│  │     │  │  │  │  │  ├─ array_like.py
+│  │     │  │  │  │  │  ├─ arrayprint.py
+│  │     │  │  │  │  │  ├─ arrayterator.py
+│  │     │  │  │  │  │  ├─ bitwise_ops.py
+│  │     │  │  │  │  │  ├─ comparisons.py
+│  │     │  │  │  │  │  ├─ dtype.py
+│  │     │  │  │  │  │  ├─ einsumfunc.py
+│  │     │  │  │  │  │  ├─ flatiter.py
+│  │     │  │  │  │  │  ├─ fromnumeric.py
+│  │     │  │  │  │  │  ├─ index_tricks.py
+│  │     │  │  │  │  │  ├─ lib_user_array.py
+│  │     │  │  │  │  │  ├─ lib_utils.py
+│  │     │  │  │  │  │  ├─ lib_version.py
+│  │     │  │  │  │  │  ├─ literal.py
+│  │     │  │  │  │  │  ├─ ma.py
+│  │     │  │  │  │  │  ├─ mod.py
+│  │     │  │  │  │  │  ├─ modules.py
+│  │     │  │  │  │  │  ├─ multiarray.py
+│  │     │  │  │  │  │  ├─ ndarray_conversion.py
+│  │     │  │  │  │  │  ├─ ndarray_misc.py
+│  │     │  │  │  │  │  ├─ ndarray_shape_manipulation.py
+│  │     │  │  │  │  │  ├─ nditer.py
+│  │     │  │  │  │  │  ├─ numeric.py
+│  │     │  │  │  │  │  ├─ numerictypes.py
+│  │     │  │  │  │  │  ├─ random.py
+│  │     │  │  │  │  │  ├─ recfunctions.py
+│  │     │  │  │  │  │  ├─ scalars.py
+│  │     │  │  │  │  │  ├─ shape.py
+│  │     │  │  │  │  │  ├─ simple.py
+│  │     │  │  │  │  │  ├─ simple_py3.py
+│  │     │  │  │  │  │  ├─ ufunc_config.py
+│  │     │  │  │  │  │  ├─ ufunclike.py
+│  │     │  │  │  │  │  ├─ ufuncs.py
+│  │     │  │  │  │  │  └─ warnings_and_errors.py
+│  │     │  │  │  │  ├─ reveal/
+│  │     │  │  │  │  │  ├─ arithmetic.pyi
+│  │     │  │  │  │  │  ├─ array_api_info.pyi
+│  │     │  │  │  │  │  ├─ array_constructors.pyi
+│  │     │  │  │  │  │  ├─ arraypad.pyi
+│  │     │  │  │  │  │  ├─ arrayprint.pyi
+│  │     │  │  │  │  │  ├─ arraysetops.pyi
+│  │     │  │  │  │  │  ├─ arrayterator.pyi
+│  │     │  │  │  │  │  ├─ bitwise_ops.pyi
+│  │     │  │  │  │  │  ├─ char.pyi
+│  │     │  │  │  │  │  ├─ chararray.pyi
+│  │     │  │  │  │  │  ├─ comparisons.pyi
+│  │     │  │  │  │  │  ├─ constants.pyi
+│  │     │  │  │  │  │  ├─ ctypeslib.pyi
+│  │     │  │  │  │  │  ├─ datasource.pyi
+│  │     │  │  │  │  │  ├─ dtype.pyi
+│  │     │  │  │  │  │  ├─ einsumfunc.pyi
+│  │     │  │  │  │  │  ├─ emath.pyi
+│  │     │  │  │  │  │  ├─ fft.pyi
+│  │     │  │  │  │  │  ├─ flatiter.pyi
+│  │     │  │  │  │  │  ├─ fromnumeric.pyi
+│  │     │  │  │  │  │  ├─ getlimits.pyi
+│  │     │  │  │  │  │  ├─ histograms.pyi
+│  │     │  │  │  │  │  ├─ index_tricks.pyi
+│  │     │  │  │  │  │  ├─ lib_function_base.pyi
+│  │     │  │  │  │  │  ├─ lib_polynomial.pyi
+│  │     │  │  │  │  │  ├─ lib_utils.pyi
+│  │     │  │  │  │  │  ├─ lib_version.pyi
+│  │     │  │  │  │  │  ├─ linalg.pyi
+│  │     │  │  │  │  │  ├─ ma.pyi
+│  │     │  │  │  │  │  ├─ matrix.pyi
+│  │     │  │  │  │  │  ├─ memmap.pyi
+│  │     │  │  │  │  │  ├─ mod.pyi
+│  │     │  │  │  │  │  ├─ modules.pyi
+│  │     │  │  │  │  │  ├─ multiarray.pyi
+│  │     │  │  │  │  │  ├─ nbit_base_example.pyi
+│  │     │  │  │  │  │  ├─ ndarray_assignability.pyi
+│  │     │  │  │  │  │  ├─ ndarray_conversion.pyi
+│  │     │  │  │  │  │  ├─ ndarray_misc.pyi
+│  │     │  │  │  │  │  ├─ ndarray_shape_manipulation.pyi
+│  │     │  │  │  │  │  ├─ nditer.pyi
+│  │     │  │  │  │  │  ├─ nested_sequence.pyi
+│  │     │  │  │  │  │  ├─ npyio.pyi
+│  │     │  │  │  │  │  ├─ numeric.pyi
+│  │     │  │  │  │  │  ├─ numerictypes.pyi
+│  │     │  │  │  │  │  ├─ polynomial_polybase.pyi
+│  │     │  │  │  │  │  ├─ polynomial_polyutils.pyi
+│  │     │  │  │  │  │  ├─ polynomial_series.pyi
+│  │     │  │  │  │  │  ├─ random.pyi
+│  │     │  │  │  │  │  ├─ rec.pyi
+│  │     │  │  │  │  │  ├─ scalars.pyi
+│  │     │  │  │  │  │  ├─ shape.pyi
+│  │     │  │  │  │  │  ├─ shape_base.pyi
+│  │     │  │  │  │  │  ├─ stride_tricks.pyi
+│  │     │  │  │  │  │  ├─ strings.pyi
+│  │     │  │  │  │  │  ├─ testing.pyi
+│  │     │  │  │  │  │  ├─ twodim_base.pyi
+│  │     │  │  │  │  │  ├─ type_check.pyi
+│  │     │  │  │  │  │  ├─ ufunc_config.pyi
+│  │     │  │  │  │  │  ├─ ufunclike.pyi
+│  │     │  │  │  │  │  ├─ ufuncs.pyi
+│  │     │  │  │  │  │  └─ warnings_and_errors.pyi
+│  │     │  │  │  │  └─ mypy.ini
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ test_isfile.py
+│  │     │  │  │  ├─ test_runtime.py
+│  │     │  │  │  └─ test_typing.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  └─ mypy_plugin.py
+│  │     │  ├─ __config__.py
+│  │     │  ├─ __config__.pyi
+│  │     │  ├─ __init__.cython-30.pxd
+│  │     │  ├─ __init__.pxd
+│  │     │  ├─ __init__.py
+│  │     │  ├─ __init__.pyi
+│  │     │  ├─ _array_api_info.py
+│  │     │  ├─ _array_api_info.pyi
+│  │     │  ├─ _configtool.py
+│  │     │  ├─ _configtool.pyi
+│  │     │  ├─ _distributor_init.py
+│  │     │  ├─ _distributor_init.pyi
+│  │     │  ├─ _expired_attrs_2_0.py
+│  │     │  ├─ _expired_attrs_2_0.pyi
+│  │     │  ├─ _globals.py
+│  │     │  ├─ _globals.pyi
+│  │     │  ├─ _pytesttester.py
+│  │     │  ├─ _pytesttester.pyi
+│  │     │  ├─ conftest.py
+│  │     │  ├─ dtypes.py
+│  │     │  ├─ dtypes.pyi
+│  │     │  ├─ exceptions.py
+│  │     │  ├─ exceptions.pyi
+│  │     │  ├─ matlib.py
+│  │     │  ├─ matlib.pyi
+│  │     │  ├─ py.typed
+│  │     │  ├─ version.py
+│  │     │  └─ version.pyi
+│  │     ├─ onnxruntime-1.31.1.dist-info/
+│  │     │  ├─ entry_points.txt
+│  │     │  ├─ METADATA
+│  │     │  ├─ RECORD
+│  │     │  ├─ top_level.txt
+│  │     │  └─ WHEEL
+│  │     ├─ onnxruntime/
+│  │     │  ├─ backend/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ backend.py
+│  │     │  │  └─ backend_rep.py
+│  │     │  ├─ capi/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ _ld_preload.py
+│  │     │  │  ├─ _pybind_state.py
+│  │     │  │  ├─ build_and_package_info.py
+│  │     │  │  ├─ convert_npz_to_onnx_adapter.py
+│  │     │  │  ├─ onnxruntime.dll
+│  │     │  │  ├─ onnxruntime_collect_build_info.py
+│  │     │  │  ├─ onnxruntime_inference_collection.py
+│  │     │  │  ├─ onnxruntime_providers_shared.dll
+│  │     │  │  ├─ onnxruntime_pybind11_state.pyd
+│  │     │  │  ├─ onnxruntime_validation.py
+│  │     │  │  └─ version_info.py
+│  │     │  ├─ datasets/
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ logreg_iris.onnx
+│  │     │  │  ├─ mul_1.onnx
+│  │     │  │  └─ sigmoid.onnx
+│  │     │  ├─ quantization/
+│  │     │  │  ├─ CalTableFlatBuffers/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ KeyValue.py
+│  │     │  │  │  └─ TrtTable.py
+│  │     │  │  ├─ execution_providers/
+│  │     │  │  │  └─ qnn/
+│  │     │  │  │     ├─ __init__.py
+│  │     │  │  │     ├─ fusion_lpnorm.py
+│  │     │  │  │     ├─ fusion_spacetodepth.py
+│  │     │  │  │     ├─ mixed_precision_overrides_utils.py
+│  │     │  │  │     ├─ preprocess.py
+│  │     │  │  │     └─ quant_config.py
+│  │     │  │  ├─ fusions/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ fusion.py
+│  │     │  │  │  ├─ fusion_gelu.py
+│  │     │  │  │  ├─ fusion_layernorm.py
+│  │     │  │  │  └─ replace_upsample_with_resize.py
+│  │     │  │  ├─ neural_compressor/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ onnx_model.py
+│  │     │  │  │  ├─ util.py
+│  │     │  │  │  └─ weight_only.py
+│  │     │  │  ├─ operators/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ activation.py
+│  │     │  │  │  ├─ argmax.py
+│  │     │  │  │  ├─ attention.py
+│  │     │  │  │  ├─ base_operator.py
+│  │     │  │  │  ├─ binary_op.py
+│  │     │  │  │  ├─ concat.py
+│  │     │  │  │  ├─ conv.py
+│  │     │  │  │  ├─ direct_q8.py
+│  │     │  │  │  ├─ embed_layernorm.py
+│  │     │  │  │  ├─ gather.py
+│  │     │  │  │  ├─ gavgpool.py
+│  │     │  │  │  ├─ gemm.py
+│  │     │  │  │  ├─ lstm.py
+│  │     │  │  │  ├─ matmul.py
+│  │     │  │  │  ├─ maxpool.py
+│  │     │  │  │  ├─ norm.py
+│  │     │  │  │  ├─ pad.py
+│  │     │  │  │  ├─ pooling.py
+│  │     │  │  │  ├─ qdq_base_operator.py
+│  │     │  │  │  ├─ resize.py
+│  │     │  │  │  ├─ softmax.py
+│  │     │  │  │  ├─ split.py
+│  │     │  │  │  └─ where.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ base_quantizer.py
+│  │     │  │  ├─ calibrate.py
+│  │     │  │  ├─ cuda_quantizer.py
+│  │     │  │  ├─ matmul_bnb4_quantizer.py
+│  │     │  │  ├─ matmul_nbits_quantizer.py
+│  │     │  │  ├─ onnx_model.py
+│  │     │  │  ├─ onnx_quantizer.py
+│  │     │  │  ├─ preprocess.py
+│  │     │  │  ├─ qdq_loss_debug.py
+│  │     │  │  ├─ qdq_quantizer.py
+│  │     │  │  ├─ quant_utils.py
+│  │     │  │  ├─ quantize.py
+│  │     │  │  ├─ registry.py
+│  │     │  │  ├─ shape_inference.py
+│  │     │  │  ├─ static_quantize_runner.py
+│  │     │  │  └─ tensor_quant_overrides.py
+│  │     │  ├─ tools/
+│  │     │  │  ├─ mobile_helpers/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ coreml_supported_mlprogram_ops.md
+│  │     │  │  │  ├─ coreml_supported_neuralnetwork_ops.md
+│  │     │  │  │  ├─ nnapi_supported_ops.md
+│  │     │  │  │  └─ usability_checker.py
+│  │     │  │  ├─ ort_format_model/
+│  │     │  │  │  ├─ ort_flatbuffers_py/
+│  │     │  │  │  │  ├─ fbs/
+│  │     │  │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  │  ├─ ArgType.py
+│  │     │  │  │  │  │  ├─ ArgTypeAndIndex.py
+│  │     │  │  │  │  │  ├─ Attribute.py
+│  │     │  │  │  │  │  ├─ AttributeType.py
+│  │     │  │  │  │  │  ├─ Checkpoint.py
+│  │     │  │  │  │  │  ├─ DeprecatedKernelCreateInfos.py
+│  │     │  │  │  │  │  ├─ DeprecatedNodeIndexAndKernelDefHash.py
+│  │     │  │  │  │  │  ├─ DeprecatedSessionState.py
+│  │     │  │  │  │  │  ├─ DeprecatedSubGraphSessionState.py
+│  │     │  │  │  │  │  ├─ Dimension.py
+│  │     │  │  │  │  │  ├─ DimensionValue.py
+│  │     │  │  │  │  │  ├─ DimensionValueType.py
+│  │     │  │  │  │  │  ├─ EdgeEnd.py
+│  │     │  │  │  │  │  ├─ FloatProperty.py
+│  │     │  │  │  │  │  ├─ Graph.py
+│  │     │  │  │  │  │  ├─ InferenceSession.py
+│  │     │  │  │  │  │  ├─ IntProperty.py
+│  │     │  │  │  │  │  ├─ KernelTypeStrArgsEntry.py
+│  │     │  │  │  │  │  ├─ KernelTypeStrResolver.py
+│  │     │  │  │  │  │  ├─ MapType.py
+│  │     │  │  │  │  │  ├─ Model.py
+│  │     │  │  │  │  │  ├─ ModuleState.py
+│  │     │  │  │  │  │  ├─ Node.py
+│  │     │  │  │  │  │  ├─ NodeEdge.py
+│  │     │  │  │  │  │  ├─ NodesToOptimizeIndices.py
+│  │     │  │  │  │  │  ├─ NodeType.py
+│  │     │  │  │  │  │  ├─ OperatorSetId.py
+│  │     │  │  │  │  │  ├─ OpIdKernelTypeStrArgsEntry.py
+│  │     │  │  │  │  │  ├─ OptimizerGroup.py
+│  │     │  │  │  │  │  ├─ ParameterOptimizerState.py
+│  │     │  │  │  │  │  ├─ PropertyBag.py
+│  │     │  │  │  │  │  ├─ RuntimeOptimizationRecord.py
+│  │     │  │  │  │  │  ├─ RuntimeOptimizationRecordContainerEntry.py
+│  │     │  │  │  │  │  ├─ RuntimeOptimizations.py
+│  │     │  │  │  │  │  ├─ SequenceType.py
+│  │     │  │  │  │  │  ├─ Shape.py
+│  │     │  │  │  │  │  ├─ SparseTensor.py
+│  │     │  │  │  │  │  ├─ StringProperty.py
+│  │     │  │  │  │  │  ├─ StringStringEntry.py
+│  │     │  │  │  │  │  ├─ Tensor.py
+│  │     │  │  │  │  │  ├─ TensorDataType.py
+│  │     │  │  │  │  │  ├─ TensorTypeAndShape.py
+│  │     │  │  │  │  │  ├─ TypeInfo.py
+│  │     │  │  │  │  │  ├─ TypeInfoValue.py
+│  │     │  │  │  │  │  └─ ValueInfo.py
+│  │     │  │  │  │  └─ __init__.py
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  ├─ operator_type_usage_processors.py
+│  │     │  │  │  ├─ ort_model_processor.py
+│  │     │  │  │  ├─ types.py
+│  │     │  │  │  └─ utils.py
+│  │     │  │  ├─ qdq_helpers/
+│  │     │  │  │  ├─ __init__.py
+│  │     │  │  │  └─ optimize_qdq_model.py
+│  │     │  │  ├─ qnn/
+│  │     │  │  │  ├─ add_trans_cast.py
+│  │     │  │  │  ├─ gen_qnn_ctx_onnx_model.py
+│  │     │  │  │  └─ preprocess.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ check_onnx_model_mobile_usability.py
+│  │     │  │  ├─ convert_onnx_models_to_ort.py
+│  │     │  │  ├─ file_utils.py
+│  │     │  │  ├─ logger.py
+│  │     │  │  ├─ make_dynamic_shape_fixed.py
+│  │     │  │  ├─ offline_tuning.py
+│  │     │  │  ├─ onnx_model_utils.py
+│  │     │  │  ├─ onnx_randomizer.py
+│  │     │  │  ├─ onnxruntime_test.py
+│  │     │  │  ├─ optimize_onnx_model.py
+│  │     │  │  ├─ pytorch_export_contrib_ops.py
+│  │     │  │  ├─ pytorch_export_helpers.py
+│  │     │  │  ├─ reduced_build_config_parser.py
+│  │     │  │  ├─ remove_initializer_from_input.py
+│  │     │  │  ├─ symbolic_shape_infer.py
+│  │     │  │  └─ update_onnx_opset.py
+│  │     │  ├─ transformers/
+│  │     │  │  ├─ models/
+│  │     │  │  │  ├─ bart/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  └─ export.py
+│  │     │  │  │  ├─ bert/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  └─ eval_squad.py
+│  │     │  │  │  ├─ gpt2/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ benchmark_gpt2.py
+│  │     │  │  │  │  ├─ convert_to_onnx.py
+│  │     │  │  │  │  ├─ gpt2_helper.py
+│  │     │  │  │  │  ├─ gpt2_parity.py
+│  │     │  │  │  │  ├─ gpt2_tester.py
+│  │     │  │  │  │  └─ parity_check_helper.py
+│  │     │  │  │  ├─ llama/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ benchmark.py
+│  │     │  │  │  │  ├─ benchmark_all.py
+│  │     │  │  │  │  ├─ benchmark_e2e.py
+│  │     │  │  │  │  ├─ convert_to_onnx.py
+│  │     │  │  │  │  ├─ dist_settings.py
+│  │     │  │  │  │  ├─ llama_inputs.py
+│  │     │  │  │  │  ├─ llama_parity.py
+│  │     │  │  │  │  ├─ llama_torch.py
+│  │     │  │  │  │  └─ quant_kv_dataloader.py
+│  │     │  │  │  ├─ longformer/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ benchmark_longformer.py
+│  │     │  │  │  │  ├─ convert_to_onnx.py
+│  │     │  │  │  │  ├─ generate_test_data.py
+│  │     │  │  │  │  └─ longformer_helper.py
+│  │     │  │  │  ├─ phi2/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ convert_to_onnx.py
+│  │     │  │  │  │  └─ inference_example.py
+│  │     │  │  │  ├─ sam2/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ benchmark_sam2.py
+│  │     │  │  │  │  ├─ convert_to_onnx.py
+│  │     │  │  │  │  ├─ image_decoder.py
+│  │     │  │  │  │  ├─ image_encoder.py
+│  │     │  │  │  │  ├─ mask_decoder.py
+│  │     │  │  │  │  ├─ nvtx_helper.py
+│  │     │  │  │  │  ├─ prompt_encoder.py
+│  │     │  │  │  │  ├─ sam2_demo.py
+│  │     │  │  │  │  ├─ sam2_image_onnx_predictor.py
+│  │     │  │  │  │  └─ sam2_utils.py
+│  │     │  │  │  ├─ stable_diffusion/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ benchmark.py
+│  │     │  │  │  │  ├─ benchmark_controlnet.py
+│  │     │  │  │  │  ├─ demo_txt2img.py
+│  │     │  │  │  │  ├─ demo_txt2img_xl.py
+│  │     │  │  │  │  ├─ demo_utils.py
+│  │     │  │  │  │  ├─ diffusion_models.py
+│  │     │  │  │  │  ├─ diffusion_schedulers.py
+│  │     │  │  │  │  ├─ engine_builder.py
+│  │     │  │  │  │  ├─ engine_builder_ort_cuda.py
+│  │     │  │  │  │  ├─ engine_builder_ort_trt.py
+│  │     │  │  │  │  ├─ engine_builder_tensorrt.py
+│  │     │  │  │  │  ├─ engine_builder_torch.py
+│  │     │  │  │  │  ├─ optimize_pipeline.py
+│  │     │  │  │  │  ├─ ort_optimizer.py
+│  │     │  │  │  │  ├─ pipeline_stable_diffusion.py
+│  │     │  │  │  │  └─ trt_utilities.py
+│  │     │  │  │  ├─ t5/
+│  │     │  │  │  │  ├─ __init__.py
+│  │     │  │  │  │  ├─ convert_to_onnx.py
+│  │     │  │  │  │  ├─ t5_decoder.py
+│  │     │  │  │  │  ├─ t5_encoder.py
+│  │     │  │  │  │  ├─ t5_encoder_decoder_init.py
+│  │     │  │  │  │  └─ t5_helper.py
+│  │     │  │  │  └─ whisper/
+│  │     │  │  │     ├─ __init__.py
+│  │     │  │  │     ├─ benchmark.py
+│  │     │  │  │     ├─ benchmark_all.py
+│  │     │  │  │     ├─ convert_to_onnx.py
+│  │     │  │  │     ├─ whisper_chain.py
+│  │     │  │  │     ├─ whisper_decoder.py
+│  │     │  │  │     ├─ whisper_encoder.py
+│  │     │  │  │     ├─ whisper_encoder_decoder_init.py
+│  │     │  │  │     ├─ whisper_helper.py
+│  │     │  │  │     ├─ whisper_inputs.py
+│  │     │  │  │     └─ whisper_jump_times.py
+│  │     │  │  ├─ __init__.py
+│  │     │  │  ├─ affinity_helper.py
+│  │     │  │  ├─ benchmark.py
+│  │     │  │  ├─ benchmark_helper.py
+│  │     │  │  ├─ bert_perf_test.py
+│  │     │  │  ├─ bert_test_data.py
+│  │     │  │  ├─ compare_bert_results.py
+│  │     │  │  ├─ constants.py
+│  │     │  │  ├─ convert_generation.py
+│  │     │  │  ├─ convert_tf_models_to_pytorch.py
+│  │     │  │  ├─ convert_to_packing_mode.py
+│  │     │  │  ├─ dynamo_onnx_helper.py
+│  │     │  │  ├─ float16.py
+│  │     │  │  ├─ fusion_attention.py
+│  │     │  │  ├─ fusion_attention_clip.py
+│  │     │  │  ├─ fusion_attention_sam2.py
+│  │     │  │  ├─ fusion_attention_unet.py
+│  │     │  │  ├─ fusion_attention_vae.py
+│  │     │  │  ├─ fusion_bart_attention.py
+│  │     │  │  ├─ fusion_base.py
+│  │     │  │  ├─ fusion_bias_add.py
+│  │     │  │  ├─ fusion_biasgelu.py
+│  │     │  │  ├─ fusion_biassplitgelu.py
+│  │     │  │  ├─ fusion_conformer_attention.py
+│  │     │  │  ├─ fusion_constant_fold.py
+│  │     │  │  ├─ fusion_embedlayer.py
+│  │     │  │  ├─ fusion_fastgelu.py
+│  │     │  │  ├─ fusion_gelu.py
+│  │     │  │  ├─ fusion_gelu_approximation.py
+│  │     │  │  ├─ fusion_gemmfastgelu.py
+│  │     │  │  ├─ fusion_gpt_attention.py
+│  │     │  │  ├─ fusion_gpt_attention_megatron.py
+│  │     │  │  ├─ fusion_gpt_attention_no_past.py
+│  │     │  │  ├─ fusion_group_norm.py
+│  │     │  │  ├─ fusion_layernorm.py
+│  │     │  │  ├─ fusion_mha_dit.py
+│  │     │  │  ├─ fusion_mha_mmdit.py
+│  │     │  │  ├─ fusion_nhwc_conv.py
+│  │     │  │  ├─ fusion_options.py
+│  │     │  │  ├─ fusion_qordered_attention.py
+│  │     │  │  ├─ fusion_qordered_gelu.py
+│  │     │  │  ├─ fusion_qordered_layernorm.py
+│  │     │  │  ├─ fusion_qordered_matmul.py
+│  │     │  │  ├─ fusion_quickgelu.py
+│  │     │  │  ├─ fusion_reshape.py
+│  │     │  │  ├─ fusion_rotary_attention.py
+│  │     │  │  ├─ fusion_shape.py
+│  │     │  │  ├─ fusion_simplified_layernorm.py
+│  │     │  │  ├─ fusion_skip_group_norm.py
+│  │     │  │  ├─ fusion_skiplayernorm.py
+│  │     │  │  ├─ fusion_transpose.py
+│  │     │  │  ├─ fusion_utils.py
+│  │     │  │  ├─ huggingface_models.py
+│  │     │  │  ├─ import_utils.py
+│  │     │  │  ├─ io_binding_helper.py
+│  │     │  │  ├─ large_model_exporter.py
+│  │     │  │  ├─ machine_info.py
+│  │     │  │  ├─ metrics.py
+│  │     │  │  ├─ onnx_exporter.py
+│  │     │  │  ├─ onnx_model.py
+│  │     │  │  ├─ onnx_model_bart.py
+│  │     │  │  ├─ onnx_model_bert.py
+│  │     │  │  ├─ onnx_model_bert_keras.py
+│  │     │  │  ├─ onnx_model_bert_tf.py
+│  │     │  │  ├─ onnx_model_clip.py
+│  │     │  │  ├─ onnx_model_conformer.py
+│  │     │  │  ├─ onnx_model_gpt2.py
+│  │     │  │  ├─ onnx_model_mmdit.py
+│  │     │  │  ├─ onnx_model_phi.py
+│  │     │  │  ├─ onnx_model_sam2.py
+│  │     │  │  ├─ onnx_model_t5.py
+│  │     │  │  ├─ onnx_model_tnlr.py
+│  │     │  │  ├─ onnx_model_unet.py
+│  │     │  │  ├─ onnx_model_vae.py
+│  │     │  │  ├─ onnx_utils.py
+│  │     │  │  ├─ optimizer.py
+│  │     │  │  ├─ past_helper.py
+│  │     │  │  ├─ profile_result_processor.py
+│  │     │  │  ├─ profiler.py
+│  │     │  │  ├─ quantize_helper.py
+│  │     │  │  ├─ shape_infer_helper.py
+│  │     │  │  ├─ shape_optimizer.py
+│  │     │  │  └─ torch_onnx_export_helper.py
+│  │     │  ├─ __init__.py
+│  │     │  ├─ LICENSE
+│  │     │  ├─ Privacy.md
+│  │     │  └─ ThirdPartyNotices.txt
+│  │     ├─ tokenizers-0.22.2.dist-info/
+│  │     │  ├─ METADATA
+│  │     │  ├─ RECORD
+│  │     │  └─ WHEEL
+│  │     └─ tokenizers/
+│  │        ├─ decoders/
+│  │        │  ├─ __init__.py
+│  │        │  └─ __init__.pyi
+│  │        ├─ implementations/
+│  │        │  ├─ __init__.py
+│  │        │  ├─ base_tokenizer.py
+│  │        │  ├─ bert_wordpiece.py
+│  │        │  ├─ byte_level_bpe.py
+│  │        │  ├─ char_level_bpe.py
+│  │        │  ├─ sentencepiece_bpe.py
+│  │        │  └─ sentencepiece_unigram.py
+│  │        ├─ models/
+│  │        │  ├─ __init__.py
+│  │        │  └─ __init__.pyi
+│  │        ├─ normalizers/
+│  │        │  ├─ __init__.py
+│  │        │  └─ __init__.pyi
+│  │        ├─ pre_tokenizers/
+│  │        │  ├─ __init__.py
+│  │        │  └─ __init__.pyi
+│  │        ├─ processors/
+│  │        │  ├─ __init__.py
+│  │        │  └─ __init__.pyi
+│  │        ├─ tools/
+│  │        │  ├─ __init__.py
+│  │        │  ├─ visualizer-styles.css
+│  │        │  └─ visualizer.py
+│  │        ├─ trainers/
+│  │        │  ├─ __init__.py
+│  │        │  └─ __init__.pyi
+│  │        ├─ __init__.py
+│  │        ├─ __init__.pyi
+│  │        ├─ tokenizers.pyd
+│  │        └─ tokenizers.pyi
+│  ├─ _asyncio.pyd
+│  ├─ _bz2.pyd
+│  ├─ _ctypes.pyd
+│  ├─ _decimal.pyd
+│  ├─ _elementtree.pyd
+│  ├─ _hashlib.pyd
+│  ├─ _lzma.pyd
+│  ├─ _msi.pyd
+│  ├─ _multiprocessing.pyd
+│  ├─ _overlapped.pyd
+│  ├─ _queue.pyd
+│  ├─ _socket.pyd
+│  ├─ _sqlite3.pyd
+│  ├─ _ssl.pyd
+│  ├─ _uuid.pyd
+│  ├─ _wmi.pyd
+│  ├─ _zoneinfo.pyd
+│  ├─ libcrypto-3.dll
+│  ├─ libffi-8.dll
+│  ├─ libssl-3.dll
+│  ├─ LICENSE.txt
+│  ├─ msvcp140.dll
+│  ├─ msvcp140_1.dll
+│  ├─ pyexpat.pyd
+│  ├─ python.cat
+│  ├─ python.exe
+│  ├─ python3.dll
+│  ├─ python312._pth
+│  ├─ python312.dll
+│  ├─ python312.zip
+│  ├─ pythonw.exe
+│  ├─ select.pyd
+│  ├─ sqlite3.dll
+│  ├─ unicodedata.pyd
+│  ├─ vcruntime140.dll
+│  ├─ vcruntime140_1.dll
+│  └─ winsound.pyd
+├─ embed.py
+├─ README.md
+├─ THIRD-PARTY-NOTICES.txt
+├─ 向量.cmd
+└─ 安装.cmd
