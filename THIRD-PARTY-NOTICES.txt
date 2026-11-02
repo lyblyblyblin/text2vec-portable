@@ -1,0 +1,82 @@
+本文档汇总 text2vec-portable 便携包内所有第三方组件的版权与许可信息。
+本包只是把下列组件按各自许可允许的方式打包在一起，未做任何修改。
+
+================================================================
+1. Python 3.12.8（嵌入式运行时）
+   文件：python\python.exe、python312.dll、python312.zip、*.pyd
+   许可：PSF License Agreement（Python Software Foundation License）
+   版权：Copyright (c) Python Software Foundation
+   许可全文：python\LICENSE.txt
+   再分发：允许，需保留许可与版权声明。
+
+================================================================
+2. NumPy 2.3.5
+   文件：python\Lib\site-packages\numpy\、numpy.libs\
+   许可：BSD 3-Clause License
+   版权：Copyright (c) 2005-2025, NumPy Developers
+   许可全文：python\Lib\site-packages\numpy-2.3.5.dist-info\LICENSE.txt
+   再分发：允许，需保留版权声明、条款与免责声明。
+   备注：numpy.libs\ 内的 OpenBLAS 为 BSD 许可；msvcp140-*.dll 为
+         Microsoft 运行库（见第 6 节）。
+
+================================================================
+3. Hugging Face Tokenizers 0.22.2
+   文件：python\Lib\site-packages\tokenizers\
+   许可：Apache License 2.0
+   版权：Copyright (c) Hugging Face Team
+   许可全文：https://github.com/huggingface/tokenizers/blob/main/LICENSE
+   再分发：允许，需保留版权与许可声明，并附 NOTICE（如有）。
+
+================================================================
+4. ONNX Runtime 1.31.1
+   文件：python\Lib\site-packages\onnxruntime\
+   许可：MIT License
+   版权：Copyright (c) Microsoft Corporation
+   许可全文：python\Lib\site-packages\onnxruntime\LICENSE
+   第三方声明：python\Lib\site-packages\onnxruntime\ThirdPartyNotices.txt
+   再分发：允许，需保留版权与许可声明。
+
+================================================================
+5. 嵌入模型 paraphrase-multilingual-MiniLM-L12-v2（ONNX 量化版）
+   文件：model\model_optimized.onnx、tokenizer.json、config.json 等
+   来源：https://huggingface.co/Qdrant/paraphrase-multilingual-MiniLM-L12-v2-onnx-Q
+         原始模型：sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+   许可：Apache License 2.0
+   版权：Copyright (c) sentence-transformers / UKP Lab, Qdrant（ONNX 转换）
+   许可全文：https://www.apache.org/licenses/LICENSE-2.0
+   再分发：允许（含商用），需保留版权与许可声明，注明来源。
+   注意：Apache 2.0 不提供任何担保；如修改模型需在文件中标注修改。
+
+================================================================
+6. Microsoft Visual C++ 运行库
+   文件：python\msvcp140.dll、msvcp140_1.dll、vcruntime140.dll、vcruntime140_1.dll
+   来源：Microsoft Visual C++ 2015-2022 Redistributable（14.44.35211.0）
+   许可：Microsoft 软件许可条款 —— "Redistributing Visual C++ Files"
+   再分发条件（依据微软官方文档 Distributing Visual C++ Files）：
+     * 允许以 **app-local（应用本地）** 方式随你自己的应用程序一起分发；
+     * 不得单独提供这些 DLL 的下载，不得把它们作为独立产品分发；
+     * 不得声称微软对你的产品有背书；
+     * 分发时保留微软的版权声明。
+   参考：https://learn.microsoft.com/cpp/windows/redistributing-visual-cpp-files
+   说明：如果你的分发场景涉及"单独提供运行库下载"，请改为引导用户安装官方
+         VC++ 运行库：https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+================================================================
+7. 本项目自有脚本
+   文件：embed.py、向量.cmd、安装.cmd、README.md
+   许可是可选的，由分发者自行决定。建议 MIT，最省事。
+
+================================================================
+
+打包与分发建议
+----------------------------------------------------------------
+* 本包内的第三方组件均为宽松许可（PSF / BSD / Apache-2.0 / MIT），
+  可以自由再分发、商用、修改，唯一硬性要求是**保留版权与许可声明**。
+  本文件即为该声明的汇总，请勿删除。
+* 如需上传到网上：
+  - GitHub：单个 Release 附件上限 2GB，本包约 250MB，可直接作为 Release 附件；
+    不要把 250MB 的 zip 提交进 git 仓库（单文件限 100MB）。
+  - 网盘 / 对象存储：可任意分发，建议同时附上本文件。
+* 不要拆分后单独分发：模型文件、msvcp140.dll 这类组件单独提供下载会超出
+  其许可允许的范围（尤其是微软运行库）。整包提供即可。
+* 如修改了模型文件本身（重新量化、剪枝等），需在分发时明确标注"已修改"。
