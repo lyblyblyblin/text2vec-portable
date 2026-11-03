@@ -1,10 +1,9 @@
-ï»¿@echo off
-chcp 65001 >nul
+@echo off
 setlocal EnableExtensions EnableDelayedExpansion
 
 rem ============================================================
-rem  æ–‡æœ¬è½¬å‘é‡ Â· ä¸€æ¡æ–‡æœ¬ -> 384 ç»´ base64
-rem  å†…ç½® Python ä¸æ¨¡å‹ï¼Œè§£å‹å³ç”¨ï¼Œä¸è”ç½‘ã€ä¸è£…ä¾èµ–
+rem  ÎÄ±¾×ªÏòÁ¿ ¡¤ Ò»ÌõÎÄ±¾ -> 384 Î¬ base64
+rem  ÄÚÖÃ Python ÓëÄ£ĞÍ£¬½âÑ¹¼´ÓÃ£¬²»ÁªÍø¡¢²»×°ÒÀÀµ
 rem ============================================================
 
 set "HERE=%~dp0"
@@ -14,13 +13,13 @@ set "TMPOUT=%TEMP%\t2v_out.txt"
 set "TMPERR=%TEMP%\t2v_err.txt"
 
 if not exist "%PY%" (
-    echo [x] æ‰¾ä¸åˆ°å†…ç½®çš„ python\python.exe
-    echo     è¯·æŠŠæ•´ä¸ªæ–‡ä»¶å¤¹ä¸€èµ·è§£å‹å‡ºæ¥å†è¿è¡Œï¼Œä¸è¦å•ç‹¬æ‹·èµ°è¿™ä¸ª cmdã€‚
+    echo [x] ÕÒ²»µ½ÄÚÖÃµÄ python\python.exe
+    echo     Çë°ÑÕû¸öÎÄ¼ş¼ĞÒ»Æğ½âÑ¹³öÀ´ÔÙÔËĞĞ£¬²»Òªµ¥¶À¿½×ßÕâ¸ö cmd¡£
     pause
     exit /b 1
 )
 if not exist "%EMBED%" (
-    echo [x] æ‰¾ä¸åˆ° embed.pyï¼ŒåŒæ ·è¯·ç¡®è®¤æ˜¯æ•´ä¸ªæ–‡ä»¶å¤¹ä¸€èµ·è§£å‹çš„ã€‚
+    echo [x] ÕÒ²»µ½ embed.py£¬Í¬ÑùÇëÈ·ÈÏÊÇÕû¸öÎÄ¼ş¼ĞÒ»Æğ½âÑ¹µÄ¡£
     pause
     exit /b 1
 )
@@ -30,23 +29,23 @@ if /i "%~1"=="/check" goto :check
 if /i "%~1"=="-c" goto :check
 if not "%~1"=="" goto :once
 
-rem ---------- æ— å‚æ•°ï¼šäº¤äº’è¾“å…¥ ----------
+rem ---------- ÎŞ²ÎÊı£º½»»¥ÊäÈë ----------
 :loop
 echo.
 echo ============================================================
-echo   æ–‡æœ¬è½¬å‘é‡   384 ç»´ / base64   ï¼ˆç›´æ¥å›è½¦é€€å‡ºï¼‰
+echo   ÎÄ±¾×ªÏòÁ¿   384 Î¬ / base64   £¨Ö±½Ó»Ø³µÍË³ö£©
 echo ============================================================
 set "TXT="
-set /p "TXT=è¯·è¾“å…¥æ–‡æœ¬: "
+set /p "TXT=ÇëÊäÈëÎÄ±¾: "
 if not defined TXT goto :done
 
 call :run "%TXT%"
 goto :loop
 
 :once
-rem ---------- æœ‰å‚æ•°ï¼šç›´æ¥ç®—ï¼Œæ ‡å‡†è¾“å‡ºåªæœ‰ base64 ----------
+rem ---------- ÓĞ²ÎÊı£ºÖ±½ÓËã£¬±ê×¼Êä³öÖ»ÓĞ base64 ----------
 "%PY%" "%EMBED%" %* 
-rem æ¢è¡Œåªèµ° stderrï¼Œé¿å…æ±¡æŸ“ PowerShell èµ‹å€¼
+rem »»ĞĞÖ»×ß stderr£¬±ÜÃâÎÛÈ¾ PowerShell ¸³Öµ
 >&2 echo.
 exit /b %errorlevel%
 
@@ -62,7 +61,7 @@ if "%TXT%"=="" exit /b 1
 "%PY%" "%EMBED%" "%TXT%" > "%TMPOUT%" 2> "%TMPERR%"
 if errorlevel 1 (
     echo.
-    echo [x] è®¡ç®—å¤±è´¥ï¼š
+    echo [x] ¼ÆËãÊ§°Ü£º
     type "%TMPERR%"
     del "%TMPOUT%" "%TMPERR%" >nul 2>nul
     exit /b 1
@@ -71,7 +70,7 @@ set "OUT="
 set /p OUT=<"%TMPOUT%"
 del "%TMPOUT%" "%TMPERR%" >nul 2>nul
 echo.
-echo ---- base64 å‘é‡ï¼ˆå·²å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼‰----
+echo ---- base64 ÏòÁ¿£¨ÒÑ¸´ÖÆµ½¼ôÌù°å£©----
 echo !OUT!
 echo --------------------------------------
 echo !OUT! | clip
