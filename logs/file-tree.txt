@@ -1,6 +1,4 @@
 text2vec-portable/
-├─ __pycache__/
-│  └─ embed.cpython-311.pyc
 ├─ model/
 │  ├─ config.json
 │  ├─ model_optimized.onnx
