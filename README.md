@@ -15,12 +15,12 @@ ONNX 模型，**解压即可运行，不装 Python、不联外网、不需要 pi
 
 | 文件 | 大小 | 说明 |
 |:--|--:|:--|
-| [text2vec-portable.zip](https://github.com/lyblyblyblin/text2vec-portable/releases/download/v1.0.0/text2vec-portable.zip) | 250 MB | 完整便携包（1318 个文件），解压即用 |
+| [text2vec-portable.zip](https://github.com/lyblyblyblin/text2vec-portable/releases/download/v1.0.0/text2vec-portable.zip) | 250 MB | 完整便携包（1317 个文件），解压即用 |
 
 SHA-256 校验值：
 
 ```
-69802b21a0f2c9ced997fc3c9858be672ac2fe50594f9e9dddbd1bdac8b26163
+41c28560dd044d824e4c4993d1bd238fe2d9650b9c7c5c5b254a0e640a5b4db0
 ```
 
 Windows 上校验：`certutil -hashfile text2vec-portable.zip SHA256`
@@ -104,7 +104,7 @@ base64 长度 : 2048
 | 双击闪退 | 目录不完整 | 确认 `python\python.exe`、`model\model_optimized.onnx` 都在 |
 | `找不到可用的模型目录` | 只解压了部分文件 | 重新完整解压；或用 `--model-dir` 指定 |
 | 报 `msvcp140.dll` 缺失 | 系统缺 VC++ 运行库 | 包里已内置一份，若仍报错，装 [VC++ 2015-2022 x64](https://aka.ms/vs/17/release/vc_redist.x64.exe) |
-| 中文显示成方块 | 控制台代码页 | 先 `chcp 65001`，或直接用 PowerShell |
+| 中文显示成方块 | 控制台代码页不是 936 | 运行前执行 `chcp 936`（`向量.cmd` 按 GBK 保存，中文 Windows 默认即 936；**别改成 65001，会反而不显示中文**），或直接用 PowerShell 调 `embed.py` |
 | 结果比已有的短 | 文本被截断 | 本模型上限 **128 token**（约 128 个汉字），超长部分不参与计算 |
 
 ## 五、目录说明
